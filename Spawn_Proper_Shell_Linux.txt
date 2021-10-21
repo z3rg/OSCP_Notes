@@ -1,0 +1,5 @@
+python -c 'import pty;pty.spawn("/bin/bash")'
+cltr z
+stty raw -echo
+fg enter (Twice)
+export  TERM=xterm-256color

